@@ -1,0 +1,12 @@
+# General
+*.log
+.cache
+.DS_Store
+*bak
+.history
+.temp/**
+
+# IDE files
+.idea/
+.vscode/
+.dir-locals.el
