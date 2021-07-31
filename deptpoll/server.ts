@@ -5,7 +5,7 @@ import Default from "./defaults.ts";
 /**
  * Setup HTTP app server
  */
-async function setupServer() {
+async function setupServer(): Promise<void> {
   const app = new oak.Application();
   const port = +(Deno.env.get("PORT") || Default.Port);
   const hostname = Deno.env.get("HOST") || Default.Host;
