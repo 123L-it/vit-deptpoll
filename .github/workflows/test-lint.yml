@@ -1,0 +1,31 @@
+name: lint and test
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        deno: [1.12.2, 1.11.4]
+    name: Test with Deno ${{ matrix.deno }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Print deno version
+        run: deno --version
+
+      - name: Check format
+        run: deno fmt --check
+
+      - name: Run tests
+        run: deno test tests/
+
+      - name: Run linter
+        run: deno lint

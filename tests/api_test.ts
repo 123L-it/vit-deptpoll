@@ -1,5 +1,5 @@
 import { assertEquals, oak } from "./test_deps.ts";
-import api from '../deptpoll/api.ts';
+import api from "../deptpoll/api.ts";
 
 Deno.test({
   name: "should api root path return correctly",
@@ -12,7 +12,7 @@ Deno.test({
     const routes = [...api];
 
     await middleware(context, next);
-    
+
     assertEquals(routes[0].path, "/");
     assertEquals(context.response.body, "Deptpoll!");
   },
