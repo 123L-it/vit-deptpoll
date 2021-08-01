@@ -13,8 +13,8 @@ async function setupServer(): Promise<void> {
   app.use(api.routes());
   app.use(api.allowedMethods());
 
-  console.log(`\n server: http://localhost:${port}/ \n`);
-  await app.listen({ port, hostname: hostname });
+  console.log(`\n server: http://${hostname}:${port}/ \n`);
+  await app.listen({ port, hostname });
 }
 
 export default setupServer;
